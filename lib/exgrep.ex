@@ -3,31 +3,30 @@ defmodule Exgrep do
   alias Egrep.Methods
 
   def main(["enum" | commands] = _args) do
-    {file_name, regex} = parse_command(commands)
+    {file_name, query} = parse_command(commands)
 
     file_name
-    |> Methods.enum(regex)
+    |> Methods.enum(query)
     |> IO.inspect()
   end
 
   def main(["stream" | commands] = _args) do
-    {file_name, regex} = parse_command(commands)
+    {file_name, query} = parse_command(commands)
 
     file_name
-    |> Methods.stream(regex)
+    |> Methods.stream(query)
   end
 
   def main(["flow" | commands] = _args) do
-    {file_name, regex} = parse_command(commands)
+    {file_name, query} = parse_command(commands)
 
     file_name
-    |> Methods.flow(regex)
+    |> Methods.flow(query)
     |> IO.inspect()
   end
 
-  defp parse_command([file_name | regs] = _commands) do
-    [reg | _] = regs
-    {_, regex} = Regex.compile(reg)
-    {file_name, regex}
+  defp parse_command([file_name | querys] = _commands) do
+    [query | _] = querys
+    {file_name, query}
   end
 end
