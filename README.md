@@ -1,21 +1,19 @@
 # Exgrep
 
-**TODO: Add description**
+grepの劣化ツール
 
-## Installation
+## Usage
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `exgrep` to your list of dependencies in `mix.exs`:
+- 遅延評価 (どれだけ巨大ファイルを読み込んでもメモリを食わない)
 
-```elixir
-def deps do
-  [
-    {:exgrep, "~> 0.1.0"}
-  ]
-end
+```sh
+$ ./exgrep stream ファイル名 検索文字列
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/exgrep](https://hexdocs.pm/exgrep).
+- 並列処理 (メモリをそこそこ食わない＆コアを有効活用する)
+
+```sh
+$ ./exgrep flow ファイル名 検索文字列
+```
+
 
