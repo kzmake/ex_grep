@@ -7,7 +7,6 @@ defmodule Exgrep do
 
     file_name
     |> Methods.enum(query)
-    |> IO.inspect()
   end
 
   def main(["stream" | commands] = _args) do
@@ -22,7 +21,6 @@ defmodule Exgrep do
 
     file_name
     |> Methods.flow(query)
-    |> IO.inspect()
   end
 
   defp parse_command([file_name | querys] = _commands) do
